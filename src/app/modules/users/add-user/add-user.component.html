@@ -1,0 +1,96 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+    <div class="page-head">
+        <h3 *ngIf="isAddMode" class="page-title">
+            <i class="icon-back mr-1"></i> {{ 'USERS.ADD_USER' | translate }}
+        </h3>
+        <h3 *ngIf="!isAddMode" class="page-title">
+            <i class="icon-back mr-1"></i> {{ 'USERS.EDIT_USER' | translate }}
+        </h3>
+    </div>
+    <form class="form-box form-block inner-block mt-2">
+        <div class="card">
+            <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                <div class="form-col mr-1">
+                    <label class="form-label"> {{'USERS.FIRST_NAME' | translate }}</label>
+                    <div class="form-group">
+                        <input [(ngModel)]="addUserData.fname" name="fname" class="form-control form-modal" type="text"
+                            placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-col">
+                    <label class="form-label"> {{'USERS.LAST_NAME' | translate }}</label>
+                    <div class="form-group">
+                        <input [(ngModel)]="addUserData.lname" name="lname" class="form-control form-modal" type="text"
+                            placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label class="form-label"> {{'USERS.EMAIL' | translate }}</label>
+                    <div class="form-group">
+                        <input [(ngModel)]="addUserData.email" name="email" class="form-control" type="email"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label class="form-label"> {{ 'USERS.CONTACT_NO' | translate }}</label>
+                    <div class="form-group">
+                        <input [(ngModel)]="addUserData.contactNo" name="contactNo" class="form-control" type="number"
+                            maxLength="15" placeholder="" />
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="form-row">
+                    <div class="form-col">
+                       <label class="form-label">User Image <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span></label>
+                       <div class="dropzone dz-clickable medium">
+                          <div class="dz-default dz-message"><span>Drag and drop or <label class="custom-file-upload"><input type="file"/>browse</label> </span></div>
+                       </div>
+                    </div>
+                </div> -->
+
+            <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                <!-- <div class="form-col mr-1">
+                        <label class="form-label"> Created Date</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addUserData.createdDate" name="createdDate" class="form-control form-modal" type="date" placeholder="">
+                        </div>
+                    </div> -->
+
+                <div class="form-col">
+                    <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                        <label class="form-label d-flex"> {{'USERS.ROLE' | translate }} </label>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control form-base form-modal minimal" [(ngModel)]="addUserData.userType"
+                            name="userType">
+                            <!-- <option value="">Select Role</option> -->
+                            <!-- <option value="Vathiyar">Vathiyar</option> -->
+                            <option value="Admin">{{ 'USERS.ADMIN' | translate }}</option>
+                            <option value="Customer">{{ 'USERS.CUSTOMER' | translate }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a (click)="onCancelUser()" class="btn btn-secondary btn-medium">{{'BUTTONS.BTN_CANCEL' | translate
+                        }}</a>
+                    <button *ngIf="isAddMode" (click)="onAddUser()"
+                        [disabled]="(!addUserData.fname || !addUserData.lname || !addUserData.email || !addUserData.contactNo || !addUserData.userType)"
+                        class="btn btn-brand btn-medium">{{'BUTTONS.BTN_ADD_USER' | translate }}</button>
+                    <button *ngIf="!isAddMode" (click)="onEditUser()"
+                        class="btn btn-brand btn-medium">{{'BUTTONS.BTN_EDIT_USER' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</section>

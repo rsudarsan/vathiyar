@@ -1,0 +1,207 @@
+ $fa-fontpath: "./../fonts/icomoon/";
+
+  
+// $fa-fontpath: "../fonts/icomoon/";
+
+  
+@font-face {
+  font-family: 'icomoon';
+  src:  url($fa-fontpath + 'icomoon.eot?6ifb5l');
+  src:  url($fa-fontpath + 'icomoon.eot?6ifb5l#iefix') format('embedded-opentype'),
+    url($fa-fontpath + 'icomoon.ttf?6ifb5l') format('truetype'),
+    url($fa-fontpath + 'icomoon.woff?6ifb5l') format('woff'),
+    url($fa-fontpath + 'icomoon.svg?6ifb5l#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-1x{
+  @include font-size($font-size-sm);
+  vertical-align: middle;
+}
+.icon-2x{
+  @include font-size($font-size-md);
+  vertical-align: middle;
+}
+.icon-3x{
+  @include font-size($font-size-lg);
+  vertical-align: middle;
+}
+.icon-4x{
+  @include font-size($font-size-xl);
+  vertical-align: middle;
+}
+.icon-ic_ellipsis:before {
+  content: "\e916";
+}
+.icon-ic_batches:before {
+  content: "\e90b";
+  color: #747373;
+}
+.icon-ic_book:before {
+  content: "\e921";
+  color: #747373;
+}
+.icon-ic_course:before {
+  content: "\e922";
+  color: #747373;
+}
+.icon-ic_dashboard:before {
+  content: "\e923";
+  color: #747373;
+}
+.icon-ic_live-tv .path1:before {
+  content: "\e924";
+  color: rgb(116, 115, 115);
+  opacity: 0.3;
+}
+.icon-ic_live-tv .path2:before {
+  content: "\e925";
+  margin-left: -1em;
+  color: rgb(116, 115, 115);
+}
+.icon-ic_notes:before {
+  content: "\e926";
+  color: #747373;
+}
+.icon-ic_time:before {
+  content: "\e927";
+  color: #b4aeae;
+}
+.icon-ic_topics:before {
+  content: "\e928";
+  color: #747373;
+}
+.icon-ic_videos:before {
+  content: "\e92a";
+  color: #747373;
+}
+.icon-add:before {
+  content: "\e900";
+}
+.icon-alarm:before {
+  content: "\e901";
+  color: #747373;
+}
+.icon-active-state:before {
+  content: "\e902";
+  color: $theme-brand;
+}
+.icon-calendar:before {
+  content: "\e903";
+}
+.icon-cancel:before {
+  content: "\e904";
+}
+.icon-checkbox-active:before {
+  content: "\e905";
+  color: $theme-brand;
+}
+.icon-checkbox-disabled:before {
+  content: "\e906";
+  color: #c0c0c0;
+}
+.icon-checkbox-inactive:before {
+  content: "\e907";
+  color: #c0c0c0;
+}
+.icon-chevron-down:before {
+  content: "\e908";
+}
+.icon-chevron-left:before {
+  content: "\e909";
+}
+.icon-chevron-right:before {
+  content: "\e90a";
+}
+.icon-chevron-up:before {
+  content: "\e90c";
+}
+.icon-collapsed .path1:before {
+  content: "\e90d";
+  color: $theme-brand;
+}
+.icon-collapsed .path2:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-credit-card:before {
+  content: "\e90f";
+}
+.icon-edit:before {
+  content: "\e910";
+  color: $theme-info;
+}
+.icon-expand .path1:before {
+  content: "\e911";
+  color: $theme-brand;
+}
+.icon-expand .path2:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-lock:before {
+  content: "\e913";
+}
+.icon-mail .path1:before {
+  content: "\e914";
+  color: rgb(51, 51, 51);
+}
+.icon-mail .path2:before {
+  content: "\e915";
+  margin-left: -1.3046875em;
+  color: rgb(57, 57, 57);
+}
+.icon-phone:before {
+  content: "\e918";
+  color: #6979f8;
+}
+.icon-save:before {
+  content: "\e919";
+  color: #6979f8;
+}
+.icon-search:before {
+  content: "\e91a";
+}
+.icon-settings:before {
+  content: "\e91b";
+  color: #747373;
+}
+.icon-trash:before {
+  content: "\e91d";
+  color: #ff3800;
+}
+.icon-upload:before {
+  content: "\e91e";
+}
+.icon-user:before {
+  content: "\e91f";
+  color:#747373;
+}
+.icon-user-purple:before {
+  content: "\e920";
+  color: $theme-brand;
+}
+
+
+.ic-align-middle{
+  position: relative;
+  top: 3px;
+  font-size: 1.12rem;
+}

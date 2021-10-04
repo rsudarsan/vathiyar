@@ -1,0 +1,54 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{ 'PACKAGE.HD_TITLE' | translate  }}</h3>
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+    <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text"
+          placeholder="Search Package" class="form-control form-filter form-md form-modal round-md" value="" [(ngModel)]="term"
+           /></div>
+    <a class="btn btn-primary" routerLink="/addpackage">{{ 'BUTTONS.BTN_ADD_PACKAGE' | translate }}</a>
+ </div>
+
+<div class="card mt-3">
+    <div class="card-body">
+       
+    
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ 'PACKAGE.PACKAGE_NAME' | translate  }}</th>
+                <th>{{ 'PACKAGE.DESCRIPTION' | translate  }}</th>
+                <th>{{ 'PACKAGE.PRICE' | translate  }}</th>
+                <th colspan="2"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let package of packagesList | filter:term | orderBy: 'PACKAGE_ID' : true | slice: (page-1) * pageSize : page * pageSize ">
+                    <td data-label="packagename">{{package.PACKAGE_NAME}}</td>
+                    <td data-label="packagedesc">{{package.PACKAGE_DESC}}</td>
+                    <td data-label="packageprice">{{package.PACKAGE_PRICE}}</td>
+                    <td>
+                        <div ngbDropdown class="d-inline-block text-right">
+                            <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                            <div ngbDropdownMenu>
+                               <button ngbDropdownItem (click)="onEditPackage(package)"><i class="icon-edit icon-2x mr-1"></i>{{
+                                  'BUTTONS.BTN_EDIT' | translate }}</button>
+                               <button ngbDropdownItem (click)="onClickDelete(package)"><i
+                                     class="icon-trash icon-2x mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr> 
+            </tbody>
+        </table>
+</div>
+ </div>
+ 
+ <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="packagesList.length !== 0">
+    <p>{{'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}} </p>
+    <ngb-pagination class="d-flex justify-content-end" [collectionSize]="packagesList.length" [pageSize]="pageSize"
+        [(page)]="page"></ngb-pagination>
+ </div>
+   </section>

@@ -1,0 +1,5 @@
+.widget{
+    @include border-radius(.4em);
+    background:$white;
+    padding:10px;
+}

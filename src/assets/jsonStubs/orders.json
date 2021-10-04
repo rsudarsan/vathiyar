@@ -1,0 +1,24 @@
+[
+    {
+      "servicename": "Ganapathy Homam",
+      "description": "Service Description Sample text",
+      "category": "Homam",
+      "price": "7,400",
+      "createdate": "Nov 2, 2020"
+    },
+    {
+      "servicename": "Ayudha Pooja",
+      "description": "Service Description Sample text",
+      "category": "Pooja Services",
+      "price": "1,200",
+      "createdate": "Oct 28, 2020"
+    },
+    {
+      "servicename": "Ganapathy Homam",
+      "description": "Service Description Sample text",
+      "category": "Homam",
+      "price": "7,400",
+      "createdate": "Nov 2, 2020"
+    }
+    
+  ]

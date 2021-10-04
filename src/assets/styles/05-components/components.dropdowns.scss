@@ -1,0 +1,122 @@
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: $text-color;
+    text-align: left;
+    list-style: none;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $border-color;
+    border-radius: .25rem;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+
+    &.show {
+        display: block;
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: .5rem 1rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border:0;
+        border-bottom:1px solid $border-color;
+        @include font($font-size-md, $font-weight-normal, $line-height-base);
+        cursor: pointer;
+        i{
+            margin-right:5px;
+            font-size: 1rem;
+            vertical-align: text-bottom;
+        }
+        &:last-child{
+            
+                border-bottom:none;
+            
+        }
+    }
+
+  
+    
+    
+}
+
+
+.dropdown{
+    .btn-link{
+        color:$text-color;
+        padding:0;
+    }
+}
+.dropdown, .dropleft, .dropright, .dropup {
+    position: relative;
+}
+
+.dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=top] {
+    right: auto;
+    bottom: auto;
+}
+
+
+// notifybar
+
+.notifybar {
+  cursor: pointer;
+    .dropdown-menu {
+        top: 18px !important;
+        border-radius: 3px;
+        padding: 0;
+        .notification-dropdown-title {
+          text-align: center;
+          padding: 15px;
+          border-bottom: 1px solid $border-color;
+          h4 {
+            color: $primary;
+            font-size: 18px;
+            margin-bottom: 0;
+          }
+        }
+        .dropdown-item {
+          padding: .5rem 1rem;
+        //   border-bottom: 1px solid $border-color;
+          display: flex;
+        }
+    }
+    .action-icon {
+      width: 40px;
+      height: 40px;
+      line-height: 36px;
+      font-weight: 600;
+      border-radius: 3px;
+      font-size: 16px;
+      text-align: center;
+      margin-right: 15px;
+    }
+    h5 {
+      @include font($font-size-md, $font-weight-medium, $line-height-base);
+      color: $dark;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    .timing {
+      color: $muted;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+  }
+
+  

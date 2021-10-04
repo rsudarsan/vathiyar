@@ -1,0 +1,60 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+    <section class="page-head">
+        <h3 class="page-title">{{ 'SERVICE_CATEGORY.HD_TITLE' | translate }}</h3>
+    </section>
+    <div class="d-flex flex-wrap justify-content-between mb-2">
+        <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text"
+                placeholder="Search Service Category" value="" [(ngModel)]="term"
+                class="form-control form-filter form-md form-modal round-md" /></div>
+        <a class="btn btn-primary" routerLink="/addservicecategory">{{ 'BUTTONS.BTN_ADD_SERVICE_CATEGORY' | translate
+            }}</a>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{ 'SERVICE_CATEGORY.SERVICE_CAT_NAME' | translate }}</th>
+                        <th>{{ 'SERVICE_CATEGORY.DESCRIPTION' | translate }}</th>
+                        <th>{{ 'SERVICE_CATEGORY.DATE_CREATED' | translate }}</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categoryList | filter:term | orderBy: 'SERVICE_CAT_ID' : true | slice: (page-1) * pageSize : page * pageSize">
+                        <td data-label="Homam">{{category.SERVICE_CAT_NAME}}</td>
+                        <td data-label="Summary">{{category.SERVICE_CAT_DESC}}</td>
+                        <td data-label="date">{{category.CREATED_DATE | date:'medium'}}</td>
+                        <td>
+                            <div ngbDropdown class="d-inline-block text-right">
+                               <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                               <div ngbDropdownMenu>
+                                  <button ngbDropdownItem (click)="onEditServiceCategory(category)"><i class="icon-edit icon-2x mr-1"></i>{{
+                                     'BUTTONS.BTN_EDIT' | translate }}</button>
+                                  <button ngbDropdownItem (click)="onClickDelete(category)"><i
+                                        class="icon-trash icon-2x mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                               </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div class="pagination-wrap d-flex flex-wrap justify-content-between">
+    <p>Showing Page: {{page}} of 10</p>
+ <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
+ </div>  -->
+
+    <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="categoryList.length !== 0">
+        <p>{{'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}} </p>
+        <ngb-pagination class="d-flex justify-content-end" [collectionSize]="categoryList.length" [pageSize]="pageSize"
+            [(page)]="page"></ngb-pagination>
+    </div>
+
+</section>

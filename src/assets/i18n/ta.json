@@ -1,0 +1,50 @@
+{
+    "LOGIN_PAGE": {
+        "HD_TITLE": "நிர்வாகி உள்நுழைவு",
+        "LBL_EMAIL": "மின்னஞ்சல் முகவரி",
+        "LBL_PWD": "கடவுச்சொல்",
+        "PH_EMAIL": "உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்",        
+        "PH_PWD": "உங்கள் கடவுச்சொல்லை உள்ளிடவும்"
+    },
+
+    "USERS": {
+        "HD_TITLE": "Users",
+        "FIRST_NAME": "First Name",
+        "LAST_NAME": "Last Name",
+        "EMAIL": "Email",
+        "CONTACT_NO": "Contact No",
+        "CREATED_DATE": "Created Date",
+        "ROLE": "Role",
+        "ADD_USER": "Add User",
+        "ADMIN": "Admin",
+        "CUSTOMER": "Customer",
+        "EDIT_USER": "Edit User"
+    },
+
+    "SERVICES": {
+        "HD_TITLE": "Services",
+        "SERVICE_NAME": "Service Name",
+        "DESCRIPTION": "Description",
+        "CATEGORY": "Category",
+        "PRICE": "Price",
+        "CREATED_DATE": "Created Date"
+    },
+
+    "BUTTONS": {
+        "BTN_LOGIN": "உள்நுழைய",
+        "BTN_ADD_USER": "Add User",
+        "BTN_EDIT": "Edit",
+        "BTN_DELETE": "Delete",
+        "BTN_EDIT_USER": "Edit User",
+        "BTN_CANCEL": "Cancel",
+        "BTN_ADD_SERVICE": "Add Service"
+    },
+
+    "LABEL": {
+        "LABEL_1": "Showing Page:",
+        "LABEL_2": "of"
+    },
+
+    "VALIDATION_MSGS": {
+    }
+}

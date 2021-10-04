@@ -1,0 +1,29 @@
+.tabs{
+    display: flex;
+    margin:10px 0;
+    li{
+        margin:0 55px 0 0;
+        cursor: pointer;
+        position:relative;
+        a{
+            color:$menu-item;
+            @include font(0.9rem, $font-weight-normal, $line-height-base);
+            position:relative;
+        }
+        .count{
+            position: absolute;
+            top: -14px;
+            right: -18px;
+            margin-left: 2px;
+            font-size: 0.85rem;
+        }
+        &.active{
+            border-bottom:1px solid $theme-primary;
+            padding-bottom: 10px;
+            a{
+                color:$theme-primary;
+                font-weight:$font-weight-medium;
+            }
+        }
+    }
+}

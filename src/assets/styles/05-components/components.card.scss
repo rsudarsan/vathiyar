@@ -1,0 +1,26 @@
+.card{
+    background:$white;
+    padding:15px;
+    box-shadow: 0 10px 40px rgb(0 0 0 / 5%);
+    margin-bottom: 10px;
+    border-radius: 1rem;
+    .card-header{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .card-title{
+        @include font($font-size-base, $font-weight-semibold, $line-height-base);
+    }
+    
+    .card-body{
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 0.5rem;
+        .card-content-head{
+            margin-bottom: 12px;
+        }
+    }
+}
+

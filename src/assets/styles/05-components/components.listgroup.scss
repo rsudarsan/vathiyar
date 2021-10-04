@@ -1,0 +1,93 @@
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0; // reset padding because ul and ol
+    margin-bottom: 0;
+  }
+  
+  // Interactive list items
+  //
+  // Use anchor or button elements instead of `li`s or `div`s to create interactive
+  // list items. Includes an extra `.active` modifier class for selected items.
+  
+  // Individual list items
+  //
+  // Use on `li`s or `div`s within the `.list-group` parent.
+  
+  .list-group-item {
+    position: relative;
+    display: flex;
+    padding: .5rem 0;
+    background-color: #fff;
+    //border-bottom: 1px solid rgba(0,0,0,.125);
+    align-items: center;
+    line-height: 1.25; 
+  }
+
+  .split{
+    width:50%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .list-head{
+    @include font($font-size-sm, $font-weight-semibold, $line-height-base);
+    color:$grey-dark;
+  }
+    
+  // Flush list items
+  //
+  // Remove borders and border-radius to keep list group items edge-to-edge. Most
+  // useful within other components (e.g., cards).
+  
+  .list-group-flush {
+    .list-group-item {
+      border-right: 0;
+      border-left: 0;
+      @include border-radius(0);
+    }
+  
+    &:first-child {
+      .list-group-item:first-child {
+        border-top: 0;
+      }
+    }
+  
+    &:last-child {
+      .list-group-item:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+  
+
+  .list-border{
+    li{
+      border-bottom: 1px solid $border-color;
+      padding-bottom:5px;
+      margin-bottom:5px;
+      &:last-child{
+        border-bottom:none;
+      }
+    }
+    .badge{
+      font-family: 'nunitobold';
+      // font-size:1.1rem;
+    }
+  }
+
+  
+
+  .list-details{
+    .title{
+      font-family: 'nunitobold';
+      color:#505050;
+      margin-bottom: 4px;
+    }
+    span{
+      font-size:0.75rem;
+    }
+  }

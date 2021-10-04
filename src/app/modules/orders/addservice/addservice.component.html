@@ -1,0 +1,173 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+        <div class="page-head">
+            <h3 *ngIf="isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'SERVICES.ADD_SERVICE' | translate }}
+            </h3>
+            <h3 *ngIf="!isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'SERVICES.EDIT_SERVICE' | translate }}
+            </h3>
+        </div>
+        <form class="form-box form-block inner-block mt-2" enctype="multipart/form-data">
+            <div class="card">
+                
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col">
+                        <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                            <label class="form-label d-flex"> {{ 'SERVICES.CATEGORY' | translate }} </label>
+                            <!-- <a href="#" data-target="showFilePanel" class="btn-link"><i class="icon-add icon-3x vertical-middle"></i>Add </a> -->
+                        </div>
+                        <div class="form-group">
+                            <select [(ngModel)]="addServiceData.categoryType" name="categoryType" class="form-control form-base form-modal minimal">
+                                <option [ngValue]="category.SERVICE_CAT_ID" *ngFor="let category of categories">{{category.SERVICE_CAT_NAME }}</option>
+                                <!-- <option>Select Category</option>
+                                <option>Homam</option>
+                                <option>Pooja</option> -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'SERVICES.SERVICE_NAME' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addServiceData.name" name="name" class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.PRICE' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addServiceData.price" name="price" class="form-control form-base" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label">{{ 'SERVICES.SERVICE_IMAGE' | translate  }} <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span></label>
+                        <input type="file" (change)="onSelectFile($event)" accept="image/*">
+                        <div *ngIf="imageUrl"><img [src]="imageUrl" height="100" width="100"></div>
+                    </div>
+                </div>
+                <!-- <div class="form-row">
+                    <div class="form-col">
+                       <label class="form-label">{{ 'SERVICES.SERVICE_IMAGE' | translate  }} <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span></label>
+                        <div class="dropzone dz-clickable medium">
+                            
+                            <div class="dz-default dz-message">
+                                {{imageError}}
+                                <div class="">
+                                    <label class="custom-file-upload"> 
+                                        browse
+                                        <input type="file" (change)="fileChangeEvent($event)" 
+                                                            class="fileInputProfile">
+                                    </label>    
+                                    <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                        <img [src]="cardImageBase64" /> 
+                                        <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+                                    </ng-container>
+                                    <ng-template #elseTemplate>
+                                    </ng-template>
+                                    
+                                </div>
+                            </div>
+                            
+                       </div>
+                    </div>
+                </div> -->
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.DESCRIPTION' | translate  }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addServiceData.desc" name="desc" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.SHORT_DESC' | translate  }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addServiceData.shortDesc" name="shortDesc" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.KEYINSIGHTS' | translate  }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addServiceData.keyInsights" name="keyInsights" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.PROMISE' | translate  }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addServiceData.promise" name="promise" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col">
+                        <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                            <label class="form-label d-flex"> {{ 'SERVICES.PACKAGE' | translate }} </label>
+                            <a href="#" data-target="showFilePanel" class="btn-link"><i class="icon-add icon-3x vertical-middle"></i>Add </a>
+                        </div>
+                        <div class="form-group">
+                            <select [(ngModel)]="addServiceData.packageId" name="packageId" class="form-control form-base form-modal minimal">
+                                <option [ngValue]="package.PACKAGE_ID" *ngFor="let package of packages">{{package.PACKAGE_NAME }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col">
+                        <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                            <label class="form-label d-flex"> {{ 'SERVICES.INCLUSION' | translate }} </label>
+                            <a href="#" data-target="showFilePanel" class="btn-link"><i class="icon-add icon-3x vertical-middle"></i>Add </a>
+                        </div>
+                        <div class="form-group">
+                            <select [(ngModel)]="addServiceData.inclusionId" name="inclusionId" class="form-control form-base form-modal minimal">
+                                <option [ngValue]="inclusion.INCLUSIONS_ID" *ngFor="let inclusion of inclusions">{{inclusion.INCLUSIONS_NAME }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col">
+                        <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                            <label class="form-label d-flex"> {{ 'SERVICES.LOCATION' | translate }} </label>
+                            <a href="#" data-target="showFilePanel" class="btn-link"><i class="icon-add icon-3x vertical-middle"></i>Add </a>
+                        </div>
+                        <div class="form-group">
+                            <select [(ngModel)]="addServiceData.locationId" name="locationId" class="form-control form-base form-modal minimal">
+                                <option [ngValue]="location.LOCATION_ID" *ngFor="let location of locations">{{location.LOCATION_NAME }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'SERVICES.SPECIFICATION' | translate  }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addServiceData.specification" name="specification" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div> -->
+            
+
+
+<!--onAddService-->
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a (click)="onCancelService()" class="btn btn-secondary btn-medium">{{'BUTTONS.BTN_CANCEL' | translate }}</a>                    
+                    <button *ngIf="isAddMode" (click)="onAddServiceWithImg()" [disabled]="(!addServiceData.name || !addServiceData.price || !addServiceData.desc || !addServiceData.shortDesc || !addServiceData.keyInsights || !addServiceData.promise || !addServiceData.packageId || !addServiceData.locationId || !addServiceData.inclusionId || !addServiceData.categoryType)" class="btn btn-brand btn-medium">{{'BUTTONS.BTN_ADD_SERVICE' | translate }}</button>
+                    <button *ngIf="!isAddMode" (click)="onEditService()" class="btn btn-brand btn-medium">{{'BUTTONS.BTN_EDIT_SERVICE' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    
+</section>

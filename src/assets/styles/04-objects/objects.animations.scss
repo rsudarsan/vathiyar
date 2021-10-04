@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #c0c3c3!important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #d4d4d4;
+    border-radius: 8px;
+}
+
+::-moz-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-moz-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #c0c3c3!important;
+}
+
+::-moz-scrollbar-track {
+    background-color: #d4d4d4;
+    border-radius: 8px;
+}

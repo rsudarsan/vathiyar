@@ -1,0 +1,59 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+        <div class="page-head">
+            <h3 *ngIf="isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'INCLUSIONS.ADD_INCLUSION' | translate }}
+            </h3>
+            <h3 *ngIf="!isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'INCLUSIONS.EDIT_INCLUSION' | translate }}
+            </h3>
+        </div>
+        <form class="form-box form-block inner-block mt-2">
+            <div class="card">
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'INCLUSIONS.INCLUSION_NAME' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addEditInclusionData.inclusionName" name="inclusionName" class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'INCLUSIONS.PRICE' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addEditInclusionData.inclusionPrice" name="inclusionPrice" class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+               
+               
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> {{ 'INCLUSIONS.DESCRIPTION' | translate }}</label>
+                        <div class="form-group">
+                            <textarea  [(ngModel)]="addEditInclusionData.inclusionDesc" name="inclusionDesc" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a (click)="onCancelInclusion()" class="btn btn-secondary btn-medium">{{ 'BUTTONS.BTN_CANCEL' | translate }}</a>
+                    <button *ngIf="isAddMode" (click)="onAddInclusion()" [disabled]="(!addEditInclusionData.inclusionName || !addEditInclusionData.inclusionPrice || !addEditInclusionData.inclusionDesc)" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_ADD_INCLUSION' | translate }}</button>
+                    <button *ngIf="!isAddMode" (click)="onEditInclusion()" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_EDIT_INCLUSION' | translate }}</button>
+                    <!-- <a routerLink="/orders" class="btn btn-brand btn-medium">Add Inclusion</a> -->
+                </div>
+            </div>
+        </div>
+        </form>
+    
+</section>

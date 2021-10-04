@@ -1,0 +1,69 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{ 'VATHIYARS.HD_TITLE' | translate }}</h3>
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text"
+            placeholder="Search Vathiyar" class="form-control form-filter form-md form-modal round-md" name="keyword"
+            value="" [(ngModel)]="term" /></div>
+      <a class="btn btn-primary" routerLink="/addvathiyar">{{ 'BUTTONS.BTN_ADD_VATHIYAR' | translate }}</a>
+   </div>
+   <div class="card">
+      <table class="table" *ngIf="vathiyarsList.length !== 0">
+         <thead>
+            <tr>
+               <th>{{ 'VATHIYARS.VATHIYAR_NAME' | translate }}</th>
+               <th>{{ 'VATHIYARS.LOCATION' | translate }}</th>
+               <th>{{ 'VATHIYARS.SERVICES' | translate }}</th>
+               <th>{{ 'VATHIYARS.PAYMENT_METHOD' | translate }}</th>
+               <th>{{ 'VATHIYARS.LANGUAGE_PREFERENCES' | translate }}</th>
+               <th colspan="2"></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let vathiyar of vathiyarsList | filter:term  | orderBy: 'VATHIYAR_ID' : true | slice: (page-1) * pageSize : page * pageSize ">
+               <td data-label="Booking Date &amp; Time">{{vathiyar.FIRST_NAME}} {{vathiyar.LAST_NAME}}</td>
+               <td data-label="Service Name">
+                  <div *ngFor="let location of vathiyar.LOCATION_PREFERENCE">
+                     {{location.LOCATION_NAME}}
+                  </div>
+               </td>
+               <td data-label="Customer Name">
+                  <div *ngFor="let service of vathiyar.SERVICES">
+                     {{service.SERVICE_NAME}}
+                  </div>
+               </td>
+               <td data-label="Service Status">Cash</td>
+               <td data-label="Task Finished Date">
+                  <div *ngFor="let language of vathiyar.LANGUAGE_ID">
+                     {{language.LANGUAGE_NAME}}
+                  </div>
+               </td>
+               <td>
+                  <div ngbDropdown class="d-inline-block text-right">
+                     <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                     <div ngbDropdownMenu>
+                        <button ngbDropdownItem (click)="onEditVathiyar(vathiyar)">
+                           <i class="icon-edit icon-2x mr-1"></i>{{ 'BUTTONS.BTN_EDIT' | translate }}</button>
+                        <button ngbDropdownItem (click)="onClickDelete(vathiyar)"><i
+                              class="icon-trash icon-2x mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <p *ngIf="vathiyarsList.length == 0">{{responseMsg}}</p>
+   </div>
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="vathiyarsList.length !== 0">
+      <p>{{'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}} </p>
+      <ngb-pagination class="d-flex justify-content-end" [collectionSize]="vathiyarsList.length" 
+         [pageSize]="pageSize"
+         [(page)]="page"></ngb-pagination>
+   </div>
+
+
+
+</section>

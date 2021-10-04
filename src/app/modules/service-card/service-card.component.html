@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+         <h3 class="page-title">{{ 'SERVICE_CARD.HD_TITLE' | translate }}</h3>
+   </section>
+   <div class="tab-section">      
+      <ul class="tabs mb-2">
+         <li *ngFor="let tabList of tabLists" [ngClass]="{'active': selectedTab === tabList.name}">
+            <a (click)="selectTab(tabList.value,tabList.name)">{{tabList.name}} <span class="count">{{tabList.count}}</span></a>
+         </li>    
+      </ul>
+   </div>
+   
+
+   <app-tab-content [data]="filteredBookingList"></app-tab-content>
+
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between">
+      <p>{{ 'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}}</p>
+      <ngb-pagination class="d-flex justify-content-end" 
+                      [collectionSize]="filteredBookingList.length" 
+                      [pageSize]="pageSize"
+                      [(page)]="page"></ngb-pagination>
+   </div>
+
+   
+   
+
+   
+</section>

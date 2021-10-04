@@ -1,0 +1,45 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{ 'REVIEWS.HD_TITLE' | translate }}</h3>     
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2">
+         <i class="icon-search vertical-middle"></i>
+         <input type="text" placeholder="Search by service name" 
+         class="form-control form-filter form-md form-modal round-md" name="keyword" value="" [(ngModel)]="term"/></div>
+      
+   </div>
+<div class="card">
+   <table class="table">
+      <thead>
+         <tr>
+            <th>{{ 'REVIEWS.USER_NAME' | translate }}</th>
+            <th>{{ 'REVIEWS.SERVICE_NAME' | translate }}</th>
+            <th>{{ 'REVIEWS.DESCRIPTION' | translate }}</th>
+            <th>{{ 'REVIEWS.RATINGS' | translate }}</th>
+            <th>{{ 'REVIEWS.POSTED_DATE' | translate }}</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let review of reviewsList | filter:term | orderBy: 'REVIEW_ID' : true">
+            <td data-label="Username">{{review.USERS[0].FIRST_NAME}}  {{review.USERS[0].LAST_NAME}}</td>
+            <td data-label="Service Name">{{review.SERVICES[0].SERVICE_NAME}}</td>
+            <td class="w-40" data-label="Description">{{review.REVIEW_DESC}}</td>
+            <td data-label="Ratings">{{review.REVIEW_RATING}}</td>
+            <td data-label="Posted Date">{{review.CREATED_AT | date:'medium'}}</td>
+         </tr>
+      </tbody>
+   </table>
+   <p *ngIf="reviewsList.length == 0">{{responseMsg}}</p>
+</div>
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="reviewsList.length !== 0">
+      <p>{{ 'LABEL.LABEL_1' | translate }}: {{page}} {{ 'LABEL.LABEL_2' | translate }} 10</p>
+   <ngb-pagination class="d-flex justify-content-end" 
+      [collectionSize]="reviewsList.length"  
+      [pageSize]="pageSize"
+      [(page)]="page">
+   </ngb-pagination>
+   </div> 
+</section>

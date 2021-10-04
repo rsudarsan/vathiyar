@@ -1,0 +1,87 @@
+// Headings
+// -------------------------
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: $font-family;
+  margin-bottom: 0.5rem;
+}
+
+h5,
+h6,
+.h5,
+.h6 {
+  font-family: $font-family;
+}
+
+h1,
+.h1 {
+  color: $text-color;
+  @include font($h1-font-size-touch, $font-weight-normal, $h1-line-height-touch);
+
+  @include tablet {
+    @include font($h1-font-size, $font-weight-normal, $h1-line-height);
+  }
+}
+
+h2,
+.h2 {
+  color: $text-color;
+  @include font($h2-font-size-touch, $font-weight-normal, $h2-line-height-touch);
+
+  @include tablet {
+    @include font($h2-font-size, $font-weight-normal, $h2-line-height);
+    line-height: $h2-line-height;
+  }
+}
+
+h3,
+.h3 {
+  color: $text-color;
+  @include font($h3-font-size, $font-weight-normal, $h3-line-height);
+
+  @include tablet {
+    @include font($h3-font-size-touch, $font-weight-normal, $h3-line-height-touch);
+  }
+}
+
+h4,
+.h4 {
+  color: $text-color;
+  @include font($h4-font-size, $font-weight-normal, $h4-line-height);
+
+  @include tablet {
+    @include font($h4-font-size-touch, $font-weight-normal, $h4-line-height-touch);
+  }
+}
+
+h5,
+.h5 {
+  color: $text-color;
+
+  @include font($h5-font-size-touch, $font-weight-bold, $h5-line-height-touch);
+  @include tablet {
+    @include font($h5-font-size, $font-weight-bold, $h5-line-height);
+  }
+}
+
+h6,
+.h6 {
+  color: $text-color;
+  @include font($h6-font-size-touch, $font-weight-bold, $h6-line-height-touch);
+
+  @include tablet {
+    @include font($h6-font-size, $font-weight-bold, $h6-line-height);
+  }
+}
+
+
+a{
+  color:$text-link;
+  text-decoration: none;
+}

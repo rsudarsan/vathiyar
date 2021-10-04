@@ -1,0 +1,49 @@
+<!-- Login -->
+<div class="auth-container">
+    <div class="auth-banner illustration"></div>
+    <div class="auth-box medium-box d-flex flex-wrap align-items-center justify-space-between">
+        <span class="form-inline lang-dropdown">
+            <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+              <option *ngFor="let language of translate.getLangs()" [value]="language"
+                [selected]="language === translate.currentLang">
+                {{ language }}
+              </option>
+            </select>
+        </span>
+        <form class="form-box">
+            <div class="brand-logo">
+                <img src="assets/images/vathiyar-logo.jpg" alt="Vaathiyar" />
+            </div>
+            <h2 class="mb-3">{{'LOGIN_PAGE.HD_TITLE'| translate }}</h2>
+            <p *ngIf="msg">{{msg}}</p>
+            <div class="form-row">
+                <label class="form-label"> {{'LOGIN_PAGE.LBL_EMAIL'| translate }} </label>
+                <div class="form-group form-position">
+                    <i>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" fill="none" viewBox="0 0 28 29">
+                    <path stroke="#393939" stroke-linecap="round" stroke-linejoin="round" d="M24 8.993c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2m20 0v12c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-12m20 0l-10 7-10-7"></path>
+                 </svg>
+              </i>
+                    <input [(ngModel)]="loginUserData.email" name="email"  class="form-control full-width" type="email" placeholder="{{'LOGIN_PAGE.PH_EMAIL'| translate }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="form-label">{{'LOGIN_PAGE.LBL_PWD' | translate }} </label>
+                <div class="form-group form-position">
+                    <i>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" fill="none" viewBox="0 0 28 29">
+                    <path stroke="#393939" stroke-linecap="round" stroke-linejoin="round" d="M9 13.415v-4a5 5 0 1110 0v4m-12 0h14a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2z"></path>
+                 </svg>
+              </i>
+                    <input [(ngModel)]="loginUserData.password" name="password" class="form-control full-width" type="password" placeholder="{{'LOGIN_PAGE.PH_PWD' | translate }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <button (click)="onSubmitLogin()" [disabled]="(!loginUserData.email || !loginUserData.password)" class="btn btn-brand btn-block">{{'BUTTONS.BTN_LOGIN' | translate }}</button>
+                <br/>
+                <!--  routerLink="/dashboard" <p class="text-center">Don't have an account <a class="btn-link" href="/register">Signup ?</a> -->
+            </div>
+        </form>
+    </div>
+    </div>
+    <!-- End Login -->

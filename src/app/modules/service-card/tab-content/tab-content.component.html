@@ -1,0 +1,32 @@
+
+<div class="d-flex flex-wrap justify-content-between mb-2">
+    <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i>
+      <input type="text" placeholder="Search by Booking ID" class="form-control form-filter form-md form-modal round-md" name="keyword" value="" [(ngModel)]="term"/>
+   </div>
+ </div>
+<div class="card">
+    <table class="table">
+       <thead>
+            <tr>
+             <th>{{ 'SERVICE_CARD.BOOKING_ID' | translate }}</th>
+             <th>{{ 'SERVICE_CARD.CUSTOMER_NAME' | translate }}</th>
+             <th>{{ 'SERVICE_CARD.CUSTOMER_NUMBER' | translate }}</th>
+             <th>{{ 'SERVICE_CARD.PRICE' | translate }}</th>
+             <th>{{ 'SERVICE_CARD.PAYMENT' | translate }}</th>
+             <th>{{ 'SERVICE_CARD.STATUS' | translate }}</th>           
+            </tr>
+       </thead>
+       <tbody>          
+             <tr *ngFor="let fbl of data | filter:term | orderBy: 'BOOKING_ID' : true | slice: (page-1) * pageSize : page * pageSize">
+                <td data-label="Booking ID">{{fbl.BOOKING_ID}}</td>
+                <td data-label="Customer Name">{{fbl.CUSTOMER_NAME}}</td>
+                <td data-label="Customer number">{{fbl.CUSTOMER_PH_NO}}</td>
+                <td data-label="Price">{{fbl.TOT_SERVICE_PRICE}}</td>
+                <td data-label="Payment">{{fbl.PAYMENT_TYPE}}</td>
+                <td data-label="Status">{{fbl.BOOKING_STATUS}}</td>
+             </tr>
+       </tbody>
+    </table>
+     
+ </div>
+ 

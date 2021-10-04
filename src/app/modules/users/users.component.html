@@ -1,0 +1,80 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{ 'USERS.HD_TITLE' | translate }}</h3>
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text"
+            placeholder="Search by username" class="form-control form-filter form-md form-modal round-md" name="keyword"
+            value="" [(ngModel)]="term" /></div>
+      <a class="btn btn-primary" routerLink="/adduser">{{'BUTTONS.BTN_ADD_USER' | translate }}</a>
+   </div>
+   <div class="card">
+      <table class="table">
+         <thead>
+            <tr>
+               <th>{{ 'USERS.FIRST_NAME' | translate }}</th>
+               <th>{{ 'USERS.LAST_NAME' | translate }}</th>
+               <th>{{ 'USERS.EMAIL' | translate }}</th>
+               <th>{{ 'USERS.CONTACT_NO' | translate }}</th>
+               <th>{{ 'USERS.CREATED_DATE' | translate }}</th>
+               <th>{{ 'USERS.ROLE' | translate }}</th>
+               <th colspan="2"></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let user of usersList | filter:term | orderBy: 'USER_ID' : true | slice: (page-1) * pageSize : page * pageSize ">
+               <td data-label="First Name">{{user.FIRST_NAME}}</td>
+               <td data-label="Last Name">{{user.LAST_NAME}}</td>
+               <td data-label="Email">{{user.EMAIL_ID}}</td>
+               <td data-label="Contact No">{{user.CONTACT_NO }}</td>
+               <td data-label="Created Date">{{user.CREATED_DATE | date:'medium'}}</td>
+               <td data-label="Role">{{user.USER_TYPE}}</td>
+               <td>
+                  <div ngbDropdown class="d-inline-block text-right" *ngIf="user.USER_TYPE == 'Admin'">
+                     <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                     <div ngbDropdownMenu>
+                        <button ngbDropdownItem (click)="onEditUser(user)"><i
+                              class="icon-edit icon-2x mr-1"></i>{{'BUTTONS.BTN_EDIT' | translate }}</button>
+                        <button ngbDropdownItem (click)="onClickDelete(user)"><i
+                              class="icon-trash icon-2x mr-1"></i>{{'BUTTONS.BTN_DELETE' | translate }}</button>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <p *ngIf="usersList.length == 0">{{responseMsg}}</p>
+   </div>
+   <!-- (click)="onDeleteUser(user)" -->
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="usersList.length !== 0">
+      <p>{{'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}} </p>
+      <ngb-pagination class="d-flex justify-content-end" [collectionSize]="usersList.length" [pageSize]="pageSize"
+         [(page)]="page"></ngb-pagination>
+   </div>
+</section>
+
+<!-- 
+ <ng-template #mymodal let-modal>
+   <div id="myModal" class="modal fade">
+      <div class="modal-dialog modal-confirm">
+         <div class="modal-content">
+            <div class="modal-header flex-column">
+               <div class="icon-box">
+                  <i class="material-icons">&#xE5CD;</i>
+               </div>						
+               <h4 class="modal-title w-100">Are you sure?</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="modal.dismiss('Cross click')">&times;</button>
+            </div>
+            <div class="modal-body">
+               <p>Do you really want to delete these record? This process cannot be undone.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">Cancel</button>
+               <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Delete</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</ng-template> -->

@@ -1,0 +1,58 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+        <div class="page-head">
+            <h3 *ngIf="isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'LANGUAGE.ADD_LANGUAGE' | translate }}
+            </h3>
+            <h3 *ngIf="!isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'LANGUAGE.EDIT_LANGUAGE' | translate }}
+            </h3>
+        </div>
+        <form class="form-box form-block inner-block mt-2">
+            <div class="card">
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'LANGUAGE.LANGUAGE_NAME' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addEditLanguageData.languageName" name="languageName"  class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'LANGUAGE.CODE' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addEditLanguageData.languageCode" name="languageCode"  class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+               
+               
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label">  {{ 'LANGUAGE.DESCRIPTION' | translate }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addEditLanguageData.languageDesc" name="languageDesc" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a (click)="onCancelLanguage()" class="btn btn-secondary btn-medium">{{ 'BUTTONS.BTN_CANCEL' | translate }}</a>
+                    <button *ngIf="isAddMode" (click)="onAddLanguage()" [disabled]="(!addEditLanguageData.languageName || !addEditLanguageData.languageCode || !addEditLanguageData.languageDesc)" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_ADD_LANGUAGE' | translate }}</button>
+                    <button *ngIf="!isAddMode" (click)="onEditLanguage()" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_EDIT_LANGUAGE' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    
+</section>

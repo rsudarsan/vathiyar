@@ -1,0 +1,60 @@
+
+// setting typography
+// Font Family
+$font-family: 'nunitoregular', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+  sans-serif;
+  
+$font-family-heading: 'nunitobold', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+sans-serif;
+  
+// Font Size
+$font-size-base: 1rem;
+$font-size-xl: $font-size-base * 1.5 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-md: $font-size-base * 0.9 !default;
+$font-size-sm: $font-size-base * 0.8 !default;
+$font-size-xs: $font-size-base * 0.75 !default;
+
+// Font Weight
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: 800;
+$font-weight-black: 900;
+$font-weight-base: $font-weight-light;
+$line-height-base: 1.5;
+$line-height-xs: 16px;
+$line-height-sm: 18px;
+$line-height-md: 20px;
+
+// Header
+$h1-font-size: $font-size-base * 4;
+$h2-font-size: $font-size-base * 2.4375;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 0.9375;
+$h5-font-size: $font-size-base * 0.75;
+$h6-font-size: $font-size-base * 0.6875;
+$h1-line-height: $font-size-base * 4.5;
+$h2-line-height: $font-size-base * 3;
+$h3-line-height: $font-size-base * 2.25;
+$h4-line-height: $font-size-base * 1.5;
+$h5-line-height: $font-size-base * 1.5;
+$h6-line-height: $font-size-base * 1.5;
+
+// Header Touch
+$h1-font-size-touch: $font-size-base * 2.25;
+$h2-font-size-touch: $font-size-base * 1.5;
+$h3-font-size-touch: $font-size-base * 1.0625;
+$h4-font-size-touch: $font-size-base * 0.875;
+$h5-font-size-touch: $font-size-base * 0.75;
+$h6-font-size-touch: $font-size-base * 0.6875;
+$h1-line-height-touch: $font-size-base * 2.5;
+$h2-line-height-touch: $font-size-base * 2.25;
+$h3-line-height-touch: $font-size-base * 1.5;
+$h4-line-height-touch: $font-size-base * 1.5;
+$h5-line-height-touch: $font-size-base * 1.5;
+$h6-line-height-touch: $font-size-base * 1.5;
+

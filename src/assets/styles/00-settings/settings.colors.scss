@@ -1,0 +1,85 @@
+// Global variables, config switches, Brand colours, etc.
+
+// ---------------------------------------------------------
+// @Default Colors
+// ---------------------------------------------------------
+
+$danger                 : #ff4b5b;
+$dark                   : #313435;
+$grey                   : #f1f3fa;
+$info                   : #138ef7;
+$primary                : #f26524;
+$success                : #2bcd72;
+$warning                : #ff9900;
+$white                  : #ffffff;
+$black                  : #000000;
+$muted                  : #777777;
+$black-light            : #333333;
+$grey-dark              : #818182;
+$white-dark             : #f5f5f5;
+$secondary              : #b4b4b5;
+$sidebar-dark           : #efefef;
+
+// ---------------------------------------------------------
+// @Header Themes
+// ---------------------------------------------------------
+
+$theme-danger         : $danger;
+$theme-info           : $info;
+$theme-primary        : $primary;
+$theme-success        : desaturate($success, 5%);
+$theme-warning        : $warning;
+$theme-secondary      : $secondary; 
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $theme-primary,
+    "secondary":  $theme-secondary,
+    "success":    $theme-success,
+    "info":       $theme-info,
+    "warning":    $theme-warning,
+    "danger":     $theme-danger,
+  ),
+  $theme-colors
+);
+
+// global application colors
+
+$body-bg                : #f7f7f7;
+$input-border           : #cccccc;
+$lightbluecolor         : #e5edf9;
+$header-bg              : $black-light;
+$border-color           : #efebeb;
+$border-color-dark      : #d6d3d3;
+$btn-secondary          : #636365;
+
+// Text Colors
+$text-color: #505050;
+$text-title: #757475;
+$text-content:#404040;
+$text-link:#2196f3;
+$page-title:#505050;
+
+
+// navbar
+$navbar-theme-light                  : $white;
+$header-theme-dark                   : $black;
+$sidebar                             : $white;
+$menu-item                           :#696767;
+
+
+$table-head                          : #505050;
+$toggle-switch-bg                    : #cacaca;
+$form-label                          : #4e4e50;
+$modal-title                         : #666;
+$theme-brand                         : #f26524;
+$theme-primary-hover                 : #ce4f15;
+// Pagination
+$pagination-color                    : $grey-dark;
+$pagination-active-bg                : $primary;
+$pagination-active-border-color      : $primary;
+$pagination-disabled-color           : $muted;
+
+

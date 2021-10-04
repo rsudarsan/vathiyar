@@ -1,0 +1,351 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+
+   <div class="page-head">
+      <h3 *ngIf="isAddMode" class="page-title">
+         <i class="icon-back mr-1"></i> {{ 'VATHIYARS.ADD_VATHIYAR' | translate }}
+     </h3>
+     <h3 *ngIf="!isAddMode" class="page-title">
+         <i class="icon-back mr-1"></i> {{ 'VATHIYARS.EDIT_VATHIYAR' | translate }}
+     </h3>
+   </div>
+   <form class="form-box form-block inner-block mt-2" enctype="multipart/form-data">
+
+      <!-- Basic Info -->
+      <section id="basic" class="card group">
+
+         <h2 class="mb-2 visible-large hide-small ui-step-head">{{ 'VATHIYARS.BASIC_INFO' | translate }} </h2>
+         <div class="form-row row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col two-col">
+               <label class="form-label">{{ 'VATHIYARS.FIRST_NAME' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.fname" name="fname" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label">{{ 'VATHIYARS.LAST_NAME' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.lname" name="lname" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+
+
+         </div>
+
+         <div class="form-row row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col two-col">
+               <label class="form-label"> {{'VATHIYARS.EMAIL_ID' | translate }}</label>
+               <div class="form-group">
+                  <input [(ngModel)]="addVathiyarData.email" name="email" class="form-control" type="email"
+                     placeholder="" />
+               </div>
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label"> {{ 'VATHIYARS.AADHAR_CARD_NUMBER' | translate }}</label>
+               <div class="form-group">
+                  <input [(ngModel)]="addVathiyarData.aadharNumber" name="aadharNumber" class="form-control" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+         </div>
+
+         <div class="form-row row">
+
+            <div class="form-col two-col">
+               <label class="form-label">{{ 'VATHIYARS.PROFILE_PICTURE' | translate  }} <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span></label>
+                <input type="file" (change)="onSelectFile($event,'profileImg')" accept="image/*">
+                <div *ngIf="profileImageUrl"><img [src]="profileImageUrl" height="100" width="100"></div>
+
+               <!-- <label class="form-label">{{ 'VATHIYARS.PROFILE_PICTURE' | translate }}
+                  <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span>
+               </label>
+               <div class="dropzone dz-clickable">
+                  <div class="dz-default dz-message"><span>Drag and drop or <label class="custom-file-upload">
+                           <input type="file" name="profilePic" />browse</label> </span></div> -->
+               <!-- </div> -->
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label">{{ 'VATHIYARS.AADHAR_IMAGE' | translate  }} <span class="help-text justify-content-end">(JPG and PNG with max size 5 MB)</span></label>
+                <input type="file" (change)="onSelectFile($event, 'aadharImg')" accept="image/*">
+                <div *ngIf="aadharImageUrl"><img [src]="aadharImageUrl" height="100" width="100"></div>
+
+               <!-- <label class="form-label">{{ 'VATHIYARS.AADHAR_IMAGE' | translate }}
+                  <span class="help-text justify-content-end">(JPG, PNG, PDF with max size 5 MB)</span>
+               </label>
+               <div class="dropzone dz-clickable">
+                  <div class="dz-default dz-message"><span>Drag and drop or <label class="custom-file-upload">
+                           <input type="file" name="aadharImg" />browse</label> </span></div>
+               </div> -->
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-col">
+               <label class="form-label"> {{ 'VATHIYARS.ADDRESS' | translate }}</label>
+               <div class="form-group">
+                  <textarea class="form-control" [(ngModel)]="addVathiyarData.address" name="address"></textarea>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+
+
+            <div class="form-col col-md-6">
+               <label class="form-label">{{ 'VATHIYARS.COUNTRY' | translate }}</label>
+               <div class="form-group">
+                  <select [(ngModel)]="addVathiyarData.country" name="country" class="form-control minimal">
+                     <option value="India">{{ 'VATHIYARS.INDIA' | translate }}</option>
+                  </select>
+               </div>
+            </div>
+            <div class="form-col col-md-6">
+               <label class="form-label"> {{ 'VATHIYARS.STATE' | translate }}</label>
+               <div class="form-group">
+                  <select [(ngModel)]="addVathiyarData.state" name="state"
+                     (change)="onStateChange(addVathiyarData.state,$event)"
+                     class="form-control form-base form-modal minimal"
+                     [disabled]="(!addVathiyarData.country)">
+                     <option [ngValue]="state.STATE_ID" *ngFor="let state of statesList">{{state.STATE_NAME}}
+                     </option>
+                  </select>
+                  <!-- <select class="form-control minimal">
+                        <option selected>Choose</option>
+                        <option>Tamilnadu</option>
+                        <option>Karnataka</option>
+                     </select> -->
+               </div>
+            </div>
+         </div>
+         <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+
+            <div class="form-col col-md-6">
+               <label class="form-label"> {{ 'VATHIYARS.CITY' | translate }}</label>
+               <div class="form-group">
+                  <select  [(ngModel)]="addVathiyarData.district" 
+                           name="district"
+                           (change)="onDistrictChange(addVathiyarData.district,$event)"
+                           class="form-control form-base form-modal minimal"
+                           [disabled]="(!addVathiyarData.state)">
+                     <option [ngValue]="district.DISTRICT_ID" *ngFor="let district of districtsList">
+                        {{district.DISTRICT_NAME}}
+                     </option>
+                  </select>
+               </div>
+            </div>
+            <div class="form-col col-md-6">
+               <label class="form-label"> {{'VATHIYARS.PINCODE' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.pincode" name="pincode" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+         </div>
+         <div class="form-row row">
+            <div class="form-col two-col">
+               <label class="form-label">{{ 'VATHIYARS.PHONE_NUMBER' | translate }}</label>
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text ml-1">+91</span>
+                  </div>
+                  <input type="text" [(ngModel)]="addVathiyarData.phoneNo" name="phoneNo"
+                     class="form-control prepend-form-control" placeholder="10 digit mobile number" value="" />
+               </div>
+            </div>
+
+         </div>
+
+      </section>
+      <!-- End Basic Info -->
+
+      <!-- Services -->
+      <section id="services" class="card group">
+
+         <h2 class="mb-2 visible-large hide-small ui-step-head">{{ 'VATHIYARS.SERVICES' | translate }}</h2>
+
+         <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col col-md-8">
+               <label class="form-label">{{ 'VATHIYARS.SERVICES' | translate }}</label>
+               <div class="form-group">
+                  <ng-select name="services" [items]="serviceDropDownList"
+                  [searchable]="true" [multiple]="true" [(ngModel)]="serviceSelectedItems"
+                  bindLabel="SERVICE_NAME">
+                  <ng-template ng-header-tmp>
+
+                     <div>
+                       <button class="btn btn-link" (click)="onSelectAllClick(serviceDropDownList, serviceSelectedItems )">Select All</button>
+                     </div>
+                 
+                   </ng-template>
+              </ng-select>
+                  <!-- <ng-multiselect-dropdown name="services" [placeholder]="'Select'" [settings]="serviceDropDownSettings"
+                     [data]="serviceDropDownList" [(ngModel)]="serviceSelectedItems"
+                     (onSelect)="onItemSelect($event, 'Services')" (onSelectAll)="onSelectAll($event, 'Services')"
+                     (onDeSelect)="onItemDeSelect($event, 'Services')">
+                  </ng-multiselect-dropdown> -->
+               </div>
+            </div>
+            <div class="form-col col-md-4">
+               <label class="form-label"> {{ 'VATHIYARS.LANGUAGES' | translate }}</label>
+               <div class="form-group">
+                  <ng-select name="languages" [items]="langDropDownList"
+                  [searchable]="true" [multiple]="true"  [(ngModel)]="langSelectedItems"
+                  bindLabel="LANGUAGE_NAME" >
+                  <!-- <ng-template ng-header-tmp>
+
+                     <div>
+                       <button class="btn btn-link" (click)="onSelectAll('SERVICES',services, 'SERVICE_NAME' )">Select All</button>
+                     </div>
+                 
+                   </ng-template> -->
+              </ng-select>
+               <!-- <ng-multiselect-dropdown name="languages" 
+                     [placeholder]="'Select'" 
+                     [settings]="langDropDownSettings"
+                     [data]="langDropDownList" 
+                     [(ngModel)]="langSelectedItems"
+                     (onSelect)="onItemSelect($event,'Languages')" (onSelectAll)="onSelectAll($event,'Languages')">
+                  </ng-multiselect-dropdown> -->
+               </div>
+            </div>
+         </div>
+         <!-- <div class="form-row">
+               <div class="form-col">
+               <label class="form-label">{{ 'VATHIYARS.ADDITIONAL INFO' | translate }}</label>
+               <div class="form-group">
+                  <textarea class="form-control textarea" [(ngModel)]="addVathiyarData.description" name="description" ></textarea>
+               </div>
+               </div>
+            </div> -->
+         <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col col-md-6">
+               <label class="form-label"> {{ 'VATHIYARS.LOCATION_PREFERENCES' | translate }}</label>
+               <div class="form-group">
+                  <ng-select name="locations" [items]="locationDropDownList"
+                  [searchable]="true" [multiple]="true" [(ngModel)]="locationSelectedItems" 
+                  bindLabel="LOCATION_NAME">
+                  <!-- <ng-template ng-header-tmp>
+
+                     <div>
+                       <button class="btn btn-link" (click)="onSelectAll('SERVICES',services, 'SERVICE_NAME' )">Select All</button>
+                     </div>
+                 
+                   </ng-template> -->
+              </ng-select>
+                  <!-- <ng-multiselect-dropdown name="locations" [placeholder]="'Select'"
+                     [settings]="locationDropDownSettings" [data]="locationDropDownList"
+                     [(ngModel)]="locationSelectedItems" (onSelect)="onItemSelect($event,'Locations')"
+                     (onSelectAll)="onSelectAll($event,'Locations')" [disabled]="(!addVathiyarData.district)">
+                  </ng-multiselect-dropdown> -->
+               </div>
+            </div>
+            <div class="form-col col-md-6">
+               <label class="form-label"> {{ 'VATHIYARS.COMMUNITY' | translate }}</label>
+               <div class="form-group">
+                  <ng-select name="community" [items]="communityDropDownList"
+                  [searchable]="true" [multiple]="true" [(ngModel)]="communitySelectedItems"
+                  bindLabel="COMMUNITY_NAME">
+                  <!-- <ng-template ng-header-tmp>
+
+                     <div>
+                       <button class="btn btn-link" (click)="onSelectAll('SERVICES',services, 'SERVICE_NAME' )">Select All</button>
+                     </div>
+                 
+                   </ng-template> -->
+              </ng-select>
+                  <!-- <ng-multiselect-dropdown name="community" [placeholder]="'Select'"
+                     [settings]="communityDropDownSettings" [data]="communityDropDownList"
+                     [(ngModel)]="communitySelectedItems" (onSelect)="onItemSelect($event,'Community')"
+                     (onSelectAll)="onSelectAll($event,'Community')">
+                  </ng-multiselect-dropdown> -->
+               </div>
+            </div>
+         </div>
+
+
+      </section>
+      <!-- End Documents -->
+
+      <!-- Account Details -->
+      <section id="accounts" class="card group last">
+
+         <h2 class="mb-2 visible-large hide-small ui-step-head">{{ 'VATHIYARS.ACCOUNT_INFO' | translate }}</h2>
+         <div class="form-row row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.BANK_NAME' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.bankName" name="bankName" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.ACCOUNT_NUMBER' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.bankAccNo" name="bankAccNo" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+         </div>
+         <div class="form-row row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.IFSC_CODE' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.bankIFSCCode" name="bankIFSCCode" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.UPI_ID' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.UPIID" name="UPIID" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+         </div>
+         <div class="form-row row d-flex flex-wrap align-items-center justify-space-between">
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.ACCOUNT_TYPE' | translate }}</label>
+               <div class="form-group">
+                  <select  [(ngModel)]="addVathiyarData.bankAccType" 
+                           name="bankAccType"
+                           class="form-control form-base form-modal minimal">
+                     <option [ngValue]="accType.ACCT_TYPE_ID" *ngFor="let accType of accountTypesList">
+                        {{accType.ACCT_TYPE_NAME}}
+                     </option>
+                  </select>
+                  <!-- <input class="form-control" [(ngModel)]="addVathiyarData.bankAccType" name="bankIFSCCode" type="text"
+                     placeholder="" /> -->
+               </div>
+            </div>
+            <div class="form-col two-col">
+               <label class="form-label">{{'VATHIYARS.UPI_NAME' | translate }}</label>
+               <div class="form-group">
+                  <input class="form-control" [(ngModel)]="addVathiyarData.UPIName" name="UPIName" type="text"
+                     placeholder="" />
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <div class="form-row d-flex flex-wrap form-action">
+         <div class="form-col">
+            <a (click)="onCancelVathiyar()" class="btn btn-secondary btn-medium">{{'BUTTONS.BTN_CANCEL' | translate }}</a>                    
+            <!-- <a routerLink="/vathiyars" class="btn btn-secondary btn-medium">{{'BUTTONS.BTN_CANCEL' | translate }}</a> -->
+            <!-- <a routerLink="/vathiyars" class="btn btn-brand btn-medium">Add Vathiyar</a> -->
+            <button *ngIf="isAddMode" (click)="onUploadProfileImg()" [disabled]="(!addVathiyarData.fname || !addVathiyarData.lname || 
+                           !addVathiyarData.email || !addVathiyarData.aadharNumber || 
+                           !addVathiyarData.address || !addVathiyarData.country || 
+                           !addVathiyarData.state || !addVathiyarData.district || 
+                           !addVathiyarData.pincode || !addVathiyarData.phoneNo || !addVathiyarData.bankName ||
+                           !addVathiyarData.bankAccNo || !addVathiyarData.bankIFSCCode ||
+                           !addVathiyarData.UPIID || !addVathiyarData.bankAccType || !addVathiyarData.UPIName)" class="btn btn-brand btn-medium">
+               {{'BUTTONS.BTN_ADD_VATHIYAR' | translate }}
+            </button>
+            <button *ngIf="!isAddMode" (click)="onEditVathiyar()" class="btn btn-brand btn-medium">{{'BUTTONS.BTN_EDIT_VATHIYAR' | translate }}</button>
+         </div>
+      </div>
+   </form>
+
+</section>

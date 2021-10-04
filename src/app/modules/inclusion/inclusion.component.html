@@ -1,0 +1,47 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{ 'INCLUSIONS.HD_TITLE' | translate }}</h3>
+     
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text" placeholder="Search by inclusion" class="form-control form-filter form-md form-modal round-md" name="keyword" value="" [(ngModel)]="term"/></div>
+      <a class="btn btn-primary" routerLink="/addinclusion">{{ 'BUTTONS.BTN_ADD_INCLUSION' | translate }}</a>
+   </div>
+<div class="card">
+   <table class="table">
+      <thead>
+         <tr>
+            <th>{{ 'INCLUSIONS.INCLUSION_NAME' | translate }}</th>
+            <th>{{ 'INCLUSIONS.PRICE' | translate }}</th>
+            <th>{{ 'INCLUSIONS.DESCRIPTION' | translate }}</th>
+            <th colspan="2"></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let inclusion of inclusionsList | filter:term | orderBy: 'INCLUSIONS_ID' : true | slice: (page-1) * pageSize : page * pageSize ">
+            <td data-label="Inclusion Name">{{inclusion.INCLUSIONS_NAME}}</td>
+            <td data-label="Price">Rs. {{inclusion.INCLUSIONS_PRICE}}</td>
+            <td data-label="Description">{{inclusion.INCLUSIONS_DESC}}</td>
+            <td>
+               <div ngbDropdown class="d-inline-block text-right">
+                  <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                  <div ngbDropdownMenu>
+                      <button ngbDropdownItem (click)="onEditInclusion(inclusion)"><i class="icon-edit icon-2x mr-1"></i>{{
+                          'BUTTONS.BTN_EDIT' | translate }}</button>
+                      <button ngbDropdownItem (click)="onClickDelete(inclusion)"><i
+                              class="icon-trash icon-2x mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                  </div>
+               </div>
+            </td>
+         </tr>        
+      </tbody>
+   </table>
+</div>
+<div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="inclusionsList.length !== 0">
+   <p>{{'LABEL.LABEL_1' | translate }} {{page}} {{'LABEL.LABEL_2' | translate }} {{totNoOfPages}} </p>
+   <ngb-pagination class="d-flex justify-content-end" [collectionSize]="inclusionsList.length" [pageSize]="pageSize"
+       [(page)]="page"></ngb-pagination>
+</div>
+</section>

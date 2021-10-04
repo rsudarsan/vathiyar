@@ -1,0 +1,475 @@
+.btn {
+    display: inline-block;
+    color: $theme-secondary;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.45rem 1.2rem;
+    @include font($font-size-md, $font-weight-normal, $line-height-base);
+    @include border-radius(0.5rem);
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    text-decoration: none;
+    &:hover {
+      color: $theme-secondary;
+      text-decoration: none;
+    }
+  
+    &.focus, &:focus {
+      outline: 0;
+    }
+  
+    &.disabled, &:disabled {
+      opacity: 0.65;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+    &.btn-step{
+      padding: 0.6rem 3rem;
+      @include font($font-size-md, $font-weight-normal, $line-height-base);
+      text-transform: uppercase;
+      &.next{
+        background-color:$theme-brand;
+        border:1px solid $theme-brand;
+        color:$white;
+      }
+      &.previous{
+        background-color: $white;
+        border: 1px solid rgba(13, 30, 51, 0.27);
+        color: #333;
+      }
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      -webkit-transition: none;
+      transition: none;
+    }
+  }
+  
+  a.btn.disabled, fieldset:disabled a.btn {
+    pointer-events: none;
+  }
+  
+  .btn-primary {
+    color: $white;
+    background-color:$theme-primary;
+    border-color:$theme-primary;
+  
+    &:hover {
+      color: $white;
+      background-color:$theme-primary;
+      border-color:$theme-primary;
+    }
+  
+    &.focus, &:focus {
+      color: $white;
+      background-color:$theme-primary;
+    border-color:$theme-primary;
+    
+    }
+  
+    &.disabled, &:disabled {
+      color: $white;
+      background-color:$theme-primary;
+      border-color:$theme-primary;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color:$theme-primary;
+    border-color:$theme-primary;
+      }
+    }
+  }
+  
+  .btn-brand {
+    color: $white;
+    background-color:$theme-brand;
+    border-color:$theme-brand;
+  
+    &:hover {
+      color: $white;
+      background-color:$theme-brand;
+      border-color:$theme-brand;
+    }
+  
+    &.focus, &:focus {
+      color: $white;
+      background-color:$theme-brand;
+    border-color:$theme-brand;
+    
+    }
+  
+    &.disabled, &:disabled {
+      color: $white;
+      background-color:$theme-brand;
+      border-color:$theme-brand;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color:$theme-brand;
+    border-color:$theme-brand;
+      }
+    }
+  }
+  
+  
+  .btn-success {
+    color: $white;
+    background-color: $theme-success;
+    border-color: $theme-success;
+  
+    &:hover {
+      color: $white;
+      background-color: lighten($color: $theme-success, $amount: 20%);
+      border-color:lighten($color: $theme-success, $amount: 20%);
+    }
+  
+    &.focus, &:focus {
+      color: $white;
+      background-color:lighten($color: $theme-success, $amount: 20%);
+      border-color:lighten($color: $theme-success, $amount: 20%);
+    
+    }
+  
+    &.disabled, &:disabled {
+      color: $white;
+      background-color: $theme-success;
+      border-color: $theme-success;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: lighten($color: $theme-success, $amount: 20%);;
+        border-color: lighten($color: $theme-success, $amount: 20%);;
+      }
+    }
+  }
+  
+  
+  .btn-danger {
+    color: $white;
+    background-color: $theme-danger;
+    border-color: $theme-danger;
+  
+    &:hover {
+      color: $white;
+      background-color: $theme-danger;
+      border-color: $theme-danger;
+    }
+  
+    &.focus, &:focus {
+      color: $white;
+      background-color: $theme-danger;
+      border-color: $theme-danger;
+    
+    }
+  
+    &.disabled, &:disabled {
+      color: $white;
+      background-color: $theme-danger;
+      border-color: $theme-danger;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: $theme-danger;
+        border-color: $theme-danger;
+      }
+    }
+  }
+      
+  
+  .btn-light {
+    color: #313a46;
+    background-color: #eef2f7;
+    border-color: #eef2f7;
+  
+    &:hover {
+      color: #313a46;
+      background-color: #d4deeb;
+      border-color: #cbd7e7;
+    }
+  
+    &.focus, &:focus {
+      color: #313a46;
+      background-color: #d4deeb;
+      border-color: #cbd7e7;
+    }
+  
+    &.disabled, &:disabled {
+      color: #313a46;
+      background-color: #eef2f7;
+      border-color: #eef2f7;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: #313a46;
+        background-color: #cbd7e7;
+        border-color: #c3d1e3;
+      }
+    }
+  }
+  
+  
+  .btn-light:not(:disabled):not(.disabled) {
+    &.active:focus, &:active:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(210, 214, 220, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(210, 214, 220, 0.5);
+    }
+  }
+  
+  
+  .btn-dark {
+    color: $white;
+    background-color: #313a46;
+    border-color: #313a46;
+  
+    &:hover {
+      color: $white;
+      background-color: #212730;
+      border-color: #1c2128;
+    }
+  
+    &.focus, &:focus {
+      color: $white;
+      background-color: #212730;
+      border-color: #1c2128;
+    }
+  
+    &.disabled, &:disabled {
+      color: $white;
+      background-color: #313a46;
+      border-color: #313a46;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: #1c2128;
+        border-color: #171b21;
+      }
+    }
+  }
+  
+  
+  .btn-outline-primary {
+    color:$theme-primary;
+    border-color:$theme-primary;
+  
+    &:hover {
+      color: $white;
+      background-color:$theme-primary;
+      border-color:$theme-primary;
+    }
+  
+    &.disabled, &:disabled {
+      color:$theme-primary;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color:$theme-primary;
+        border-color:$theme-primary;
+      }
+    }
+  }
+  
+  .btn-outline-secondary {
+    color: $btn-secondary;
+    border-color: $theme-secondary;
+    font-weight: 500;
+  
+    &:hover {
+      color: $grey-dark;
+      border-color: $grey-dark;
+    }
+  
+    
+    &.disabled, &:disabled {
+      color: $theme-secondary;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: $theme-secondary;
+        border-color: $theme-secondary;
+      }
+    }
+  }
+    
+  
+  .btn-outline-success {
+    color: $theme-success;
+    border-color: $theme-success;
+  
+    &:hover {
+      color: $white;
+      background-color: $theme-success;
+      border-color: $theme-success;
+    }
+  
+  
+    &.disabled, &:disabled {
+      color: $theme-success;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: $theme-success;
+        border-color: $theme-success;
+      }
+    }
+  }
+  
+  .btn-outline-danger {
+    color: #fa5c7c;
+    border-color: #fa5c7c;
+  
+    &:hover {
+      color: $white;
+      background-color: #fa5c7c;
+      border-color: #fa5c7c;
+    }
+  
+    &.disabled, &:disabled {
+      color: #fa5c7c;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: #fa5c7c;
+        border-color: #fa5c7c;
+      }
+    }
+  }
+  
+   
+  .btn-outline-light {
+    color: #eef2f7;
+    border-color: #eef2f7;
+  
+    &:hover {
+      color: #313a46;
+      background-color: #eef2f7;
+      border-color: #eef2f7;
+    }
+  
+    &.disabled, &:disabled {
+      color: #eef2f7;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: #313a46;
+        background-color: #eef2f7;
+        border-color: #eef2f7;
+      }
+    }
+  }
+   
+  
+  .btn-outline-dark {
+    color: #313a46;
+    border-color: $grey;
+  
+    &:hover {
+      color: $white;
+      border-color: $grey-dark;
+    }
+  
+    &.disabled, &:disabled {
+      color: #313a46;
+      background-color: transparent;
+    }
+  
+    &:not(:disabled):not(.disabled) {
+      &.active, &:active {
+        color: $white;
+        background-color: #313a46;
+        border-color: #313a46;
+      }
+    }
+  }
+  
+  
+  
+  .btn-link {
+    font-weight: 400;
+    color:$text-link;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: $text-link;
+      text-decoration: none;
+    }
+  
+    &.focus, &:focus {
+      text-decoration: none;
+    }
+  
+    &.disabled, &:disabled {
+      color: $grey;
+      pointer-events: none;
+    }
+  }
+  
+  .btn-group-lg > .btn, .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.15rem;
+  }
+  
+  .btn-group-sm > .btn, .btn-sm {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+    font-size:$font-size-base !important;
+    + .btn-block {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .more-link{
+    cursor: pointer;
+  }
+
+.btn-secondary{
+    background-color: $white;
+    border: 1px solid rgba(13, 30, 51, 0.27);
+    color: $black;
+    margin-right:10px;
+}

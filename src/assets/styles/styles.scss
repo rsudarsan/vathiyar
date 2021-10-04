@@ -1,0 +1,82 @@
+//Global variables, config switches, Brand colours, etc. :
+@import "00-settings/settings.colors";
+@import "00-settings/settings.typography";
+@import "00-settings/settings.global";
+@import "00-settings/settings.modal";
+
+//Public mixins and Helper functions:
+
+@import "01-tools/tools.functions";
+@import "01-tools/tools.mixins";
+
+//Ground-zero styles Resets, Normalize.css, etc.:
+
+@import "02-generic/generic.reset";
+
+
+//Unclassed HTML elements (type selectors). H1–H6, basic links, lists, a, blockquote etc:
+
+@import "03-elements/elements.headings";
+@import "03-elements/elements.images";
+@import "03-elements/elements.lists";
+@import "03-elements/elements.tables";
+
+
+//Cosmetic-free design patterns. Begin using classes exclusively:
+
+@import "04-objects/objects.animations";
+@import "04-objects/objects.grid";
+
+
+//Designed pieces of UI, Still only using classes:
+
+@import "05-components/components.header";
+@import "05-components/components.footer";
+@import "05-components/components.navbar";
+@import "05-components/components.sidebar";
+@import "05-components/components.widget";
+@import "05-components/components.card";
+@import "05-components/components.listgroup";
+@import "05-components/components.buttons";
+@import "05-components/components.dropdowns";
+@import "05-components/components.forms";
+@import "05-components/components.tables";
+@import "05-components/components.stepper";
+@import "05-components/components.pagination";
+@import "05-components/components.badges";
+@import "05-components/components.toggle-switch";
+@import "05-components/components.tabs";
+@import "05-components/components.loader";
+@import "05-components/components.modal";
+@import "05-components/components.error";
+@import "05-components/components.fonts";
+@import "05-components/components.icons";
+@import "05-components/components.progress-bar";
+
+
+
+//Third party
+@import "06-vendors/vendor.prism";
+
+
+//Helpers and overrides. Usually carry !important.
+
+@import "07-utilities/utilities.clearfix";
+@import "07-utilities/utilities.display";
+@import "07-utilities/utilities.sizes";
+
+
+//Common Styles for applications 
+@import "08-layouts/layouts.common";
+
+
+//Responsive Styles
+
+@import "09-responsive/responsive.media";
+
+//Themes
+
+@import "10-themes/themes";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// @import '~bootstrap/scss/bootstrap';

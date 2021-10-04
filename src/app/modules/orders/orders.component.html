@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">{{'SERVICES.HD_TITLE' | translate }}</h3>
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text"
+            placeholder="Search service" class="form-control form-filter form-md form-modal round-md" name="keyword"
+            value="" [(ngModel)]="term" /></div>
+      <a class="btn btn-primary"  routerLink="/addservice">{{ 'BUTTONS.BTN_ADD_SERVICE' | translate }}</a>
+   </div>
+   <div class="card">
+      <table class="table">
+         <thead>
+            <tr>
+               <th>{{ 'SERVICES.SERVICE_NAME' | translate }}</th>
+               <th>{{ 'SERVICES.DESCRIPTION' | translate }}</th>
+               <th>{{ 'SERVICES.CATEGORY' | translate }}</th>
+               <th>{{ 'SERVICES.PRICE' | translate }}</th>
+               <th>{{ 'SERVICES.CREATED_DATE' | translate }}</th>
+               <th colspan="2"></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let order of ordersList | filter:term | orderBy: 'SERVICE_ID' : true | slice: (page-1) * pageSize : page * pageSize ">
+               <td width="20" data-label="Booking Date &amp; Time">{{order.SERVICE_NAME}}</td>
+               <td width="40" class="ellipsis" data-label="Service Name">{{order.SERVICE_DESC}}</td>
+               <td width="15" data-label="Customer Name">{{order.SERVICE_CAT_NAME}}</td>
+               <td width="10" data-label="Service Status">{{order.SERVICE_PRICE}}</td>
+               <td width="20" data-label="Task Finished Date">{{order.CREATED_AT | date:'medium'}}</td>
+               <td>
+                  <div ngbDropdown class="d-inline-block text-right">
+                     <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                     <div ngbDropdownMenu>
+                        <button ngbDropdownItem (click)="onEditService(order)"><i class="icon-edit icon-2x mr-1"></i>{{
+                           'BUTTONS.BTN_EDIT' | translate }}</button>
+                        <button ngbDropdownItem (click)="onClickDelete(order)"><i
+                              class="icon-trash icon-2x mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <p *ngIf="ordersList.length == 0">{{responseMsg}}</p>
+   </div>
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between" *ngIf="ordersList.length !== 0">
+      <p>{{ 'LABEL.LABEL_1' | translate }} {{page}} {{ 'LABEL.LABEL_2' | translate }} {{totNoOfPages}}</p>
+      <ngb-pagination class="d-flex justify-content-end" [collectionSize]="ordersList.length" [(page)]="page"
+         [pageSize]=10></ngb-pagination>
+   </div>
+</section>

@@ -1,0 +1,53 @@
+.pagination-wrap{
+    margin-top:1.5rem;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: 5px;
+    line-height: 1.25;
+    color: $primary;
+    background-color: $white;
+    // border:1px solid $border-color-dark;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.page-item{
+    
+    &:first-child{
+        .page-link {
+            margin-left: 0;
+            border-top-left-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+        }
+    } 
+    &.disabled{
+        .page-link {
+            color: $grey-dark;
+            pointer-events: none;
+            cursor: auto;
+            background-color: $white;
+            border-color: $border-color-dark;
+        }
+    }
+    &.active{
+        .page-link {
+            z-index: 3;
+            color: $white;
+            background-color: $primary;
+            border-color: $primary;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+   <section class="page-head">
+      <h3 class="page-title">Coupons</h3>
+     
+   </section>
+   <div class="d-flex flex-wrap justify-content-between mb-2">
+      <div class="d-flex search-box form-position mr-2"><i class="icon-search vertical-middle"></i><input type="text" placeholder="Search by service name" class="form-control form-filter form-md form-modal round-md" name="keyword" value="" [(ngModel)]="term"/></div>
+      <!-- <a class="btn btn-primary" routerLink="/addcoupon">Add Coupon</a> -->
+   </div>
+<div class="card">
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Coupon Name</th>
+            <th>Code</th>
+            <th>Discount</th>
+            <th>Status</th>
+            <th>Created Date</th>
+            <th colspan="2"></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let coupon of couponList">
+            <td data-label="Coupon Name">{{coupon.couponname}}</td>
+            <td data-label="Code">{{coupon.code}}</td>
+            <td class="w-40" data-label="Discount">{{coupon.discount}}</td>
+            <td data-label="Status">{{coupon.status}}</td>
+            <td data-label="Created Date">{{coupon.date}}</td>
+            <td>
+               <div ngbDropdown class="d-inline-block text-right">
+                  <span class="more-link" ngbDropdownToggle><span class="icon-ic_ellipsis icon-3x"></span></span>
+                  <!-- <div ngbDropdownMenu>
+                     <button ngbDropdownItem><i class="icon-trash mr-1"></i>{{ 'BUTTONS.BTN_DELETE' | translate }}</button>
+                  </div> -->
+               </div>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+   <div class="pagination-wrap d-flex flex-wrap justify-content-between">
+      <p>Showing Page: {{page}} of 10</p>
+   <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
+   </div> 
+</section>

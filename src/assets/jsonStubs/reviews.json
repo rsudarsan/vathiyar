@@ -1,0 +1,38 @@
+[
+    {
+      "username": "Madhankumar D",
+      "servicename": "Ganapathy Homam",
+      "desc": "Excellent, Dedication, Punctuality, Coordination and Cooperation are very good.",
+      "ratings": "4.3",
+      "postdate": "Nov 7, 2020"
+    },
+    {
+     "username": "Sudharsan",
+      "servicename": "Ayudha Pooja",
+      "desc": "Excellent, Dedication, Punctuality, Coordination and Cooperation are very good.",
+      "ratings": "4.5",
+      "postdate": "Nov 5, 2020"
+    },
+    {
+    "username": "Sudharsan",
+    "servicename": "Sathyanarayana Pooja",
+        "desc": "Excellent, Dedication, Punctuality, Coordination and Cooperation are very good.",
+        "ratings": "4.5",
+        "postdate": "Oct 25, 2020"
+    },{
+        "username": "Sudharsan",
+         "servicename": "Ayudha Pooja",
+         "desc": "Excellent, Dedication, Punctuality, Coordination and Cooperation are very good.",
+         "ratings": "4.5",
+         "postdate": "Oct 20, 2020"
+       },
+       {
+       "username": "Sudharsan",
+       "servicename": "Sathyanarayana Pooja",
+           "desc": "Excellent, Dedication, Punctuality, Coordination and Cooperation are very good.",
+           "ratings": "4.5",
+           "postdate": "Oct 15, 2020"
+       }
+
+    
+  ]

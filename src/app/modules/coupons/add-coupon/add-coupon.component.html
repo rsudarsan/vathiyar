@@ -1,0 +1,79 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+        <div class="page-head">
+            <h3 class="page-title">
+                <i class="icon-back mr-1"></i> Add Coupon
+            </h3>
+        </div>
+        <form class="form-box form-block inner-block mt-2">
+            <div class="card">
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> Coupon name</label>
+                        <div class="form-group">
+                            <input class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <label class="form-label"> Code</label>
+                        <div class="form-group">
+                            <input class="form-control form-base" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> Created Date</label>
+                        <div class="form-group">
+                            <input class="form-control form-modal" type="date" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-col">
+                        <label class="form-label"> Expiry Date</label>
+                        <div class="form-group">
+                            <input class="form-control form-modal" type="date" placeholder="">
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="form-row d-flex flex-wrap align-items-center justify-space-between">
+                    <div class="form-col">
+                        <div class="label-group d-flex flex-wrap align-items-center justify-space-between">
+                            <label class="form-label d-flex"> Discount Type </label>
+                            
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control form-base form-modal minimal">
+                                <option>Select </option>
+                                <option>Percent</option>
+                                <option>Fixed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label"> Status</label>
+                        <div class="form-group">
+                            <label class="toggle-switch small"><input type="checkbox" name="widgetSectionDock" id="widgetSectionDock"><span class="toggle-slider round"></span></label> 
+                                <span class="toggle-text ml-1">Enable the coupon</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a routerLink="/coupons" class="btn btn-secondary btn-medium">Cancel</a>
+                    <a routerLink="/coupons" class="btn btn-brand btn-medium">Add Coupon</a>
+                </div>
+            </div>
+        </div>
+        </form>
+    
+</section>

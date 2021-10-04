@@ -1,0 +1,38 @@
+[
+    {
+      "vathiname": "Venu Shastri",
+      "location": "West Mambalam, Saidapet",
+      "services": "Homam, Pooja",
+      "payment": "Cash, Gpay, Paytm, UPI",
+      "language": "Tamil, Telugu"
+    },
+    {
+        "vathiname": "Krishnan",
+        "location": "Mylapore, Triplicane",
+        "services": "Homam, Pooja",
+        "payment": "Cash, Gpay, Paytm, UPI",
+        "language": "Tamil, Telugu"
+      },
+      {
+        "vathiname": "Ramani Iyer",
+        "location": "West Mambalam, Saidapet, T.Nagar",
+        "services": "Homam, Pooja",
+        "payment": "Cash, Gpay, Paytm, UPI",
+        "language": "Tamil, Telugu, Malayalam"
+      },{
+        "vathiname": "Gopikrishnan",
+        "location": "Velachery, Medavakkam, Pallikaranai",
+        "services": "Homam, Pooja",
+        "payment": "Cash, Gpay, Paytm, UPI",
+        "language": "Tamil, Telugu"
+      },
+      {
+        "vathiname": "Ramu",
+        "location": "West Mambalam, Saidapet",
+        "services": "Homam, Pooja",
+        "payment": "Cash, Gpay, Paytm, UPI",
+        "language": "Tamil, Telugu"
+      }
+
+    
+  ]

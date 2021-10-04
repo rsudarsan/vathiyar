@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+      "target": "https://172.20.6.123:7600/",
+      "changeOrigin": true,
+      "logLevel": "info",
+      "secure": false,
+      "ws": false
+    }
+}

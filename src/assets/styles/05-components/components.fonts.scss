@@ -1,0 +1,195 @@
+ $fontpath: "./../fonts/";
+
+ 
+
+//  @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-ExtraLight.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-ExtraLight.woff') format('woff');
+//     font-weight: 200;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Regular.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Regular.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Black.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Black.woff') format('woff');
+//     font-weight: 900;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Bold.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Bold.woff') format('woff');
+//     font-weight: bold;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-ExtraBold.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-ExtraBold.woff') format('woff');
+//     font-weight: 800;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Thin.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Thin.woff') format('woff');
+//     font-weight: 100;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Medium.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Medium.woff') format('woff');
+//     font-weight: 500;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-Light.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-Light.woff') format('woff');
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Heebo';
+//     src: url($fontpath + 'heebo/Heebo-SemiBold.woff2') format('woff2'),
+//         url($fontpath + 'heebo/Heebo-SemiBold.woff') format('woff');
+//     font-weight: 600;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+
+
+
+@font-face {
+    font-family: 'nunitoblack';
+    src: url($fontpath + 'nunito/nunito-black-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+  
+  }
+  
+  @font-face {
+    font-family: 'nunitobold';
+    src: url($fontpath + 'nunito/nunito-bold-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'nunitoextrabold';
+    src: url($fontpath + 'nunito/nunito-extrabold-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'nunitoextrabold_italic';
+    src: url($fontpath + 'nunito/nunito-extrabolditalic-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-extrabolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'nunitoextralight';
+    src: url($fontpath + 'nunito/nunito-extralight-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  @font-face {
+    font-family: 'nunitoextralight_italic';
+    src: url($fontpath + 'nunito/nunito-extralightitalic-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-extralightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'nunitoitalic';
+    src: url($fontpath + 'nunito/nunito-italic-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'nunitolight';
+    src: url($fontpath + 'nunito/nunito-light-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'nunitoregular';
+    src: url($fontpath + 'nunito/nunito-regular-webfont.woff2') format('woff2'),
+         url($fontpath + 'nunito/nunito-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+  
+@font-face {
+    font-family: 'poppinsbold';
+    src: url($fontpath + 'poppins/poppins-bold-webfont.woff2') format('woff2'),
+         url($fontpath + 'poppins/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppinsmedium';
+    src: url($fontpath + 'poppins/poppins-medium-webfont.woff2') format('woff2'),
+         url($fontpath + 'poppins/poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppinsregular';
+    src: url($fontpath + 'poppins/poppins-regular-webfont.woff2') format('woff2'),
+         url($fontpath + 'poppins/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'poppinsthin';
+    src: url($fontpath + 'poppins/poppins-thin-webfont.woff2') format('woff2'),
+         url($fontpath + 'poppins/poppins-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+

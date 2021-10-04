@@ -1,0 +1,59 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<section class="slide-content">
+        <div class="page-head">
+            <h3 *ngIf="isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'LOCATION.ADD_LOCATION' | translate }}
+            </h3>
+            <h3 *ngIf="!isAddMode" class="page-title">
+                <i class="icon-back mr-1"></i> {{ 'LOCATION.EDIT_LOCATION' | translate }}
+            </h3>
+        </div>
+        <form class="form-box form-block inner-block mt-2">
+            <div class="card">
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'LOCATION.LOCATION_NAME' | translate }}</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="addEditLocationData.locationName" name="locationName"  class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+                <div class="form-row">
+                    <div class="form-col mr-1">
+                        <label class="form-label"> {{ 'LOCATION.CODE' | translate }}</label>
+                        <div class="form-group">
+                            <input  [(ngModel)]="addEditLocationData.locationPincode" name="locationPincode" class="form-control form-modal" type="text" placeholder="">
+                        </div>
+                    </div>
+
+                 
+                </div>
+               
+               
+                <div class="form-row">
+                    <div class="form-col">
+                        <label class="form-label">  {{ 'LOCATION.DESCRIPTION' | translate }}</label>
+                        <div class="form-group">
+                            <textarea [(ngModel)]="addEditLocationData.locationDesc" name="locationDesc" class="form-control form-width-half textarea" type="text" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+            <div class="form-row d-flex flex-wrap form-action">
+                <div class="form-col">
+                    <a (click)="onCancelLocation()" class="btn btn-secondary btn-medium">{{ 'BUTTONS.BTN_CANCEL' | translate }}</a>
+                    <!-- <a routerLink="/orders" class="btn btn-brand btn-medium">Add Location</a> -->
+                    <button *ngIf="isAddMode" (click)="onAddLocation()" [disabled]="(!addEditLocationData.locationName || !addEditLocationData.locationPincode || !addEditLocationData.locationDesc)" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_ADD_LOCATION' | translate }}</button>
+                    <button *ngIf="!isAddMode" (click)="onEditLocation()" class="btn btn-brand btn-medium">{{ 'BUTTONS.BTN_EDIT_LOCATION' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    
+</section>

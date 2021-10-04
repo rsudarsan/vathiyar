@@ -1,0 +1,107 @@
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .table-sort {
+    thead {
+      tr {
+        th {
+          &:nth-child(7) {
+            width: 16% !important;
+            padding-right: 0 !important;
+          }
+          &:first-child {
+            width: 12% !important;
+          }
+        }
+      }
+      td {
+        .dot-dropdown {
+          width: 26px;
+        }
+      }
+    }
+  }
+
+}
+
+@include tabletportrait  {
+  .auth-banner{
+    display: none;
+    background:none;
+    &.illustration{
+      display: none;
+      background:none;
+    }
+  }
+  .auth-box{
+    margin-left:0;
+    width:100%;
+    &.medium-box{
+      margin-left:0;
+    width:100%;
+    }
+    h2{
+      font-size:1.4rem;
+      line-height: normal;
+    }
+    .two-col, .col-md-4, .col-md-6, .col-md-8, .form-modal  {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+      
+  }
+  .form-row{
+    margin-bottom: 0;
+     .form-col{
+      margin-bottom: 1.2rem;
+    }
+    .prepend-form-control{
+      width:236px !important;
+    }
+    .btn-block{
+      margin-top:1.2rem;
+    }
+  }
+
+  .form-block{
+    max-width:100% !important;
+    padding-top:20px !important;
+  }
+  .btn.btn-step{
+    padding:0.6rem 2rem;
+  }
+  
+  .visible-small{
+    display: block;
+  }
+  .hide-small{
+    display: none;
+  }
+  .ui-menulink{
+    margin:20px 0;
+    &:before, &:after{
+      content:"";
+      display: block;
+    }
+    &:after{
+      clear:both;
+    }
+    &.active{
+      .arrow-right{
+        display: none;
+      }
+    }
+    .ui-step-text{
+      margin-left:0;
+    }
+     
+  }
+  // .form-action{
+  //   position: fixed;
+  //   bottom: 0;
+  //   right: 0;
+  //   left: 0;
+  //   width:100%;
+  //   background: #fff;
+  //   padding:10px;
+  // }
+
+}
